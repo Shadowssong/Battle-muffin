@@ -3,13 +3,13 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = 'capistrano-capable'
-  spec.version       = '1.4.0'
+  spec.name          = 'battle-muffin'
+  spec.version       = '1.0.0'
   spec.authors       = ['Greg Lombardo']
-  spec.email         = ['glombardo@articulate.com']
-  spec.description   = %q{Articulate extension tasks for Capistrano 3.x}
-  spec.summary       = %q{Articulate extension tasks for Capistrano 3.x}
-  spec.homepage      = 'https://github.com/articulate/capistrano-capable'
+  spec.email         = ['shadowssong@gmail.com']
+  spec.description   = %q{Query battle.net api}
+  spec.summary       = %q{Query battle.net api}
+  spec.homepage      = 'https://github.com/shadowssong/battle-muffin'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
@@ -17,9 +17,6 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'capistrano', '~> 3.1'
-  spec.add_dependency 'sshkit', '~> 1.2'
-
-  spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'rake'
+  spec.add_dependency 'httparty'
+  spec.add_development_dependency 'pry'
 end
