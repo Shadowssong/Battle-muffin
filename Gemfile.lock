@@ -3,7 +3,6 @@ PATH
   specs:
     battle-muffin (1.0.0)
       httparty
-      pry
 
 GEM
   remote: https://rubygems.org/
@@ -26,3 +25,4 @@ PLATFORMS
 
 DEPENDENCIES
   battle-muffin!
+  pry
