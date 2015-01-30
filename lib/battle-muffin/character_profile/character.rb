@@ -81,8 +81,8 @@ class Character
     @info['thumbnail']
   end
 
-  def thumbnail_url
-    "http://us.battle.net/static-render/us/#{thumbnail}"
+  def thumbnail_url(region="us")
+    "http://#{region}.battle.net/static-render/#{region}/#{thumbnail}"
   end
 
   def calc_class
@@ -93,8 +93,8 @@ class Character
     @info['totalHonorableKills']
   end
 
-  def item_url(slot)
+  def item_url(slot, size=56)
     icon = @items[slot]['icon']
-    "http://media.blizzard.com/wow/icons/56/#{icon}.jpg"
+    "http://media.blizzard.com/wow/icons/#{size}/#{icon}.jpg"
   end
 end
