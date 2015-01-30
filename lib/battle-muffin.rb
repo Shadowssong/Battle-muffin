@@ -14,6 +14,7 @@ require File.dirname(__FILE__) + '/battle-muffin/data-resources/item_classes'
 require File.dirname(__FILE__) + '/battle-muffin/data-resources/talents'
 require File.dirname(__FILE__) + '/battle-muffin/data-resources/pet_types'
 require File.dirname(__FILE__) + '/battle-muffin/realm/realm_status'
+require File.dirname(__FILE__) + '/battle-muffin/guild/guild_handler'
 
 class BattleMuffin
   include BattleMuffin::DataResource::CharacterRaces
@@ -29,6 +30,7 @@ class BattleMuffin
   def initialize(api_key, locale='en_US')
     @api_handler = APIHandler.new(api_key, locale)
     @character_handler = CharacterHandler.new(@api_handler)
+    @guild_handler = GuildHandler.new(@api_handler)
     @races = self.get_races
     @classes = self.get_character_classes
     @achievements = self.get_achievements
@@ -86,5 +88,9 @@ class BattleMuffin
 
   def realm_status
     @realm_status
+  end
+
+  def guild_handler
+    @guild_handler
   end
 end
