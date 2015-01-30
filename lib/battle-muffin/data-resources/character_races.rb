@@ -2,7 +2,7 @@ class BattleMuffin
   module DataResource
     module CharacterRaces
       def get_races
-        puts "HI"
+        response = @api_handler.query("data/character/races?")
       end
     end
   end
