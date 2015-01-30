@@ -38,6 +38,7 @@ class Character
   def initialize(api_handler, realm, character_name)
     @api_handler = api_handler
     @info = @api_handler.query("character/#{realm}/#{character_name}?")
+    @items = self.get_items
   end
 
   def last_modified
@@ -80,11 +81,20 @@ class Character
     @info['thumbnail']
   end
 
+  def thumbnail_url
+    "http://us.battle.net/static-render/us/#{thumbnail}"
+  end
+
   def calc_class
     @info['calcClass']
   end
 
   def total_honorable_kills
     @info['totalHonorableKills']
+  end
+
+  def item_url(slot)
+    icon = @items[slot]['icon']
+    "http://media.blizzard.com/wow/icons/56/#{icon}.jpg"
   end
 end
