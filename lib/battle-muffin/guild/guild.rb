@@ -16,10 +16,10 @@ class Guild
   end
 
   def realm
-    @info['realm']
+    @info['realm'].gsub(' ', '%20')
   end
 
   def name
-    @info['name']
+    @info['name'].gsub(' ', '%20')
   end
 end
