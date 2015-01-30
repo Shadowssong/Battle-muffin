@@ -65,10 +65,14 @@ class BattleMuffin
   end
 
   def item_classes
-    @perks
+    @item_classes
   end
 
   def talents
-    @perks
+    @talents
+  end
+
+  def pet_types
+    @pet_types
   end
 end
