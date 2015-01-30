@@ -4,8 +4,7 @@ require 'pry'
 client = BattleMuffin.new("7argtwb4rtuy2ccwcfjs74eapm52juhv")
 sovrano = client.character_handler.search("Mal'Ganis", "Sovrano")
 
-#puts sovrano.get_achievements
-#puts sovrano.get_achievements
+#puts sovrano.get_characters_achievements
 #puts sovrano.get_appearance
 #puts sovrano.get_audit
 #puts sovrano.get_feed

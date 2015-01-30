@@ -8,6 +8,7 @@ require File.dirname(__FILE__) + '/battle-muffin/data_resources'
 require File.dirname(__FILE__) + '/battle-muffin/realm'
 require File.dirname(__FILE__) + '/battle-muffin/item'
 require File.dirname(__FILE__) + '/battle-muffin/guild/guild_handler'
+require File.dirname(__FILE__) + '/battle-muffin/achievement'
 
 
 class BattleMuffin
@@ -22,6 +23,7 @@ class BattleMuffin
   include BattleMuffin::Realm::RealmStatus
   include BattleMuffin::Item::Item
   include BattleMuffin::Item::ItemSet
+  include BattleMuffin::Achievement
 
   def initialize(api_key, locale='en_US')
     @api_handler = APIHandler.new(api_key, locale)
@@ -29,7 +31,7 @@ class BattleMuffin
     @guild_handler = GuildHandler.new(@api_handler)
     @races = self.get_races
     @classes = self.get_character_classes
-    @achievements = self.get_achievements
+    @character_achievements = self.get_character_achievements
     @rewards = self.get_rewards
     @perks = self.get_perks
     @item_classes = self.get_item_classes
@@ -58,8 +60,8 @@ class BattleMuffin
     @locale
   end
 
-  def achievements
-    @achievements
+  def character_achievements
+    @character_achievements
   end
 
   def rewards
