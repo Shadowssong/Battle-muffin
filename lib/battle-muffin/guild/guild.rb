@@ -12,7 +12,7 @@ class Guild
 
   def initialize(api_handler, realm, guild_name)
     @api_handler = api_handler
-    @info = @api_handler.query("guild/#{realm}/#{guild_name}?")
+    @info = @api_handler.query("guild/#{realm.gsub(' ', '%20')}/#{guild_name.gsub(' ', '%20')}?")
   end
 
   def realm
@@ -20,6 +20,6 @@ class Guild
   end
 
   def name
-    @info['name'].gsub!(' ', '%20')
+    @info['name']
   end
 end
