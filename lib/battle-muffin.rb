@@ -7,6 +7,8 @@ require File.dirname(__FILE__) + '/battle-muffin/character_profile'
 require File.dirname(__FILE__) + '/battle-muffin/data_resources'
 require File.dirname(__FILE__) + '/battle-muffin/realm'
 require File.dirname(__FILE__) + '/battle-muffin/item'
+require File.dirname(__FILE__) + '/battle-muffin/guild/guild_handler'
+
 
 class BattleMuffin
   include BattleMuffin::DataResource::CharacterRaces
