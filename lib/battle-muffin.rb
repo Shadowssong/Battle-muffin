@@ -9,6 +9,7 @@ require File.dirname(__FILE__) + '/battle-muffin/realm'
 require File.dirname(__FILE__) + '/battle-muffin/item'
 require File.dirname(__FILE__) + '/battle-muffin/guild/guild_handler'
 require File.dirname(__FILE__) + '/battle-muffin/achievement'
+require File.dirname(__FILE__) + '/battle-muffin/spell'
 
 
 class BattleMuffin
@@ -24,6 +25,7 @@ class BattleMuffin
   include BattleMuffin::Item::Item
   include BattleMuffin::Item::ItemSet
   include BattleMuffin::Achievement
+  include BattleMuffin::Spell
 
   def initialize(api_key, locale='en_US')
     @api_handler = APIHandler.new(api_key, locale)
