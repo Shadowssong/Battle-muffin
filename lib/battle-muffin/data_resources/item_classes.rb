@@ -2,7 +2,7 @@ class BattleMuffin
   module DataResource
     module ItemClasses
       def get_item_classes
-        response = @api_handler.query("data/item/classes?")
+        @api_handler.query("data/item/classes?")
       end
     end
   end

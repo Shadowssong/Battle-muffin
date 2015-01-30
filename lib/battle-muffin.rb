@@ -1,19 +1,12 @@
 require 'httparty'
 require 'pry'
 
-# Require our modules
+# Require modules
 require File.dirname(__FILE__) + '/battle-muffin/api_handler'
-require File.dirname(__FILE__) + '/battle-muffin/character_profile/character_handler'
-require File.dirname(__FILE__) + '/battle-muffin/data-resources/character_races'
-require File.dirname(__FILE__) + '/battle-muffin/data-resources/character_races'
-require File.dirname(__FILE__) + '/battle-muffin/data-resources/character_classes'
-require File.dirname(__FILE__) + '/battle-muffin/data-resources/character_achievements'
-require File.dirname(__FILE__) + '/battle-muffin/data-resources/guild_rewards'
-require File.dirname(__FILE__) + '/battle-muffin/data-resources/guild_perks'
-require File.dirname(__FILE__) + '/battle-muffin/data-resources/item_classes'
-require File.dirname(__FILE__) + '/battle-muffin/data-resources/talents'
-require File.dirname(__FILE__) + '/battle-muffin/data-resources/pet_types'
-require File.dirname(__FILE__) + '/battle-muffin/realm/realm_status'
+require File.dirname(__FILE__) + '/battle-muffin/character_profile'
+require File.dirname(__FILE__) + '/battle-muffin/data_resources'
+require File.dirname(__FILE__) + '/battle-muffin/realm'
+require File.dirname(__FILE__) + '/battle-muffin/item'
 
 class BattleMuffin
   include BattleMuffin::DataResource::CharacterRaces
@@ -25,10 +18,13 @@ class BattleMuffin
   include BattleMuffin::DataResource::Talents
   include BattleMuffin::DataResource::PetTypes
   include BattleMuffin::Realm::RealmStatus
+  include BattleMuffin::Item::Item
+  include BattleMuffin::Item::ItemSet
 
   def initialize(api_key, locale='en_US')
     @api_handler = APIHandler.new(api_key, locale)
     @character_handler = CharacterHandler.new(@api_handler)
+    @guild_handler = GuildHandler.new(@api_handler)
     @races = self.get_races
     @classes = self.get_character_classes
     @achievements = self.get_achievements
@@ -86,5 +82,9 @@ class BattleMuffin
 
   def realm_status
     @realm_status
+  end
+
+  def guild_handler
+    @guild_handler
   end
 end
