@@ -38,7 +38,6 @@ class BattleMuffin
     @talents = self.get_talents
     @pet_types = self.get_pet_types
     @realm_status = self.get_realm_status
-    @achievement = self.get_achievement
   end
 
   def character_handler
@@ -91,9 +90,5 @@ class BattleMuffin
 
   def guild_handler
     @guild_handler
-  end
-
-  def achievement
-    @achievement
   end
 end
