@@ -2,7 +2,9 @@ require 'httparty'
 require 'pry'
 
 # Require our modules
-require File.dirname(__FILE__) + '/battle-muffin/character_profile/character_profile'
+require File.dirname(__FILE__) + '/battle-muffin/api_handler'
+require File.dirname(__FILE__) + '/battle-muffin/character_profile/character_handler'
+require File.dirname(__FILE__) + '/battle-muffin/data-resources/character_races'
 require File.dirname(__FILE__) + '/battle-muffin/data-resources/character_races'
 require File.dirname(__FILE__) + '/battle-muffin/data-resources/character_classes'
 require File.dirname(__FILE__) + '/battle-muffin/data-resources/character_achievements'
@@ -13,7 +15,6 @@ require File.dirname(__FILE__) + '/battle-muffin/data-resources/talents'
 require File.dirname(__FILE__) + '/battle-muffin/data-resources/pet_types'
 
 class BattleMuffin
-  include BattleMuffin::CharacterProfile::CharacterProfile
   include BattleMuffin::DataResource::CharacterRaces
   include BattleMuffin::DataResource::CharacterClasses
   include BattleMuffin::DataResource::CharacterAchievements
@@ -24,8 +25,8 @@ class BattleMuffin
   include BattleMuffin::DataResource::PetTypes
 
   def initialize(api_key, locale='en_US')
-    @api_key = api_key
-    @locale = locale
+    @api_handler = APIHandler.new(api_key, locale)
+    @character_handler = CharacterHandler.new(@api_handler)
     @races = self.get_races
     @classes = self.get_character_classes
     @achievements = self.get_achievements
@@ -34,6 +35,10 @@ class BattleMuffin
     @item_classes = self.get_item_classes
     @talents = self.get_talents
     @pet_types = self.get_pet_types
+  end
+
+  def character_handler
+    @character_handler
   end
 
   def races
