@@ -17,7 +17,7 @@ class Guild
     @info['realm'] = realm
   end
 
-  def race
+  def side 
     @info['side']
   end
 
