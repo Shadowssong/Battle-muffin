@@ -13,6 +13,12 @@ class Guild
   def initialize(api_handler, realm, guild_name)
     @api_handler = api_handler
     @info = @api_handler.query("guild/#{realm.gsub(' ', '%20')}/#{guild_name.gsub(' ', '%20')}?")
+    @info['name'] = name
+    @info['realm'] = realm
+  end
+
+  def race
+    @info['side']
   end
 
   def realm
