@@ -31,15 +31,6 @@ class BattleMuffin
     @api_handler = APIHandler.new(api_key, locale)
     @character_handler = CharacterHandler.new(@api_handler)
     @guild_handler = GuildHandler.new(@api_handler)
-    @races = self.get_races
-    @classes = self.get_character_classes
-    @character_achievements = self.get_character_achievements
-    @rewards = self.get_rewards
-    @perks = self.get_perks
-    @item_classes = self.get_item_classes
-    @talents = self.get_talents
-    @pet_types = self.get_pet_types
-    @realm_status = self.get_realm_status
   end
 
   def character_handler

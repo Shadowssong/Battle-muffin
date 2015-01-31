@@ -6,6 +6,6 @@ class CharacterHandler
   end
 
   def search(realm, character_name)
-    Character.new(@api_handler, realm, character_name)
+    Character.new(@api_handler, realm.gsub(' ', '%20'), character_name.gsub(' ', '%20'))
   end
 end
