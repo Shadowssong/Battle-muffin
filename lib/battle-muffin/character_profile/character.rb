@@ -38,7 +38,6 @@ class Character
   def initialize(api_handler, realm, character_name)
     @api_handler = api_handler
     @info = @api_handler.query("character/#{realm}/#{character_name}?")
-    @items = self.get_items
   end
 
   def all_info
@@ -99,7 +98,7 @@ class Character
   end
 
   def item_url(slot, size=56)
-    icon = @items[slot]['icon']
+    icon = self.get_items[slot]['icon']
     "http://media.blizzard.com/wow/icons/#{size}/#{icon}.jpg"
   end
 end
