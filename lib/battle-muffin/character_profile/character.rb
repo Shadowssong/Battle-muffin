@@ -41,6 +41,11 @@ class Character
     @items = self.get_items
   end
 
+  def all_info
+    all_items = %w{ achievements appearance audit feed guild hunterPets items mounts petSlots pets progression pvp quests reputation stats talents titles }
+    @api_handler.query("character/#{realm}/#{name}?fields=#{all_items.join(",")}&")
+  end
+
   def last_modified
     @info['lastModified']
   end

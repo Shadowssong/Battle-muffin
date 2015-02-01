@@ -17,6 +17,11 @@ class Guild
     @info['realm'] = realm
   end
 
+  def all_info
+    all_items = %w{ members achievements news challenge }
+    @api_handler.query("guild/#{realm}/#{name}?fields=#{all_items.join(",")}&")
+  end
+
   def side 
     @info['side']
   end
